@@ -1,17 +1,45 @@
 package com.globalpayex.college.entities;
 
-public class Student {
+// every class in java gets 1 Class object in the RAM
+public class Student extends CollegeUser {
     // Object attributes
     // instance variables
-    String name;
-    char gender;
     int roll;
     int marks;
 
+    // class attribute
+    static int count;
+
+    public Student(){
+        this("NA", -1, 'm', 0);
+    }
+
+    public Student(String name, int roll, char gender, int marks) {
+        // this --- current object
+        super(name, gender); // first line
+        Student.count++;
+        this.roll = roll;
+        this.marks = marks;
+    }
+
+    public static Student createInstance(String name, int roll, char gender, int marks) {
+        var s = new Student(name, roll, gender, marks);
+        return s;
+    }
+
+    // default
+    // public Student() {}
+
+
+    @Override
     public String getDetails() {
-        // implicit parameter - this - s1, s2, s10 -- current object
-        return "Name: " + this.name + "\nGender: " + this.gender + "\nRoll: " + this.roll +
-                "\nMarks: " + this.marks;
+        String part1 = super.getDetails();
+        return String.format(
+                "%s\nRoll: %s\nMarks: %s",
+                part1,
+                this.roll,
+                this.marks
+        );
     }
 
     public char calculateGrade() {
