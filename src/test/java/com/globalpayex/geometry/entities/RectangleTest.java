@@ -1,5 +1,6 @@
 package com.globalpayex.geometry.entities;
 
+import com.abc.geometry.Shape;
 import com.abc.geometry.ShapeStatistics;
 import org.junit.jupiter.api.Test;
 
@@ -41,5 +42,7 @@ class RectangleTest {
 
         var actual = ShapeStatistics.calculate(s1);
         assertEquals(expected, actual);
+
+        // var s = new Shape(); // cannot create object of an abstract class
     }
 }
