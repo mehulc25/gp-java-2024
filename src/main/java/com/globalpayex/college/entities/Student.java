@@ -1,10 +1,12 @@
 package com.globalpayex.college.entities;
 
+import java.util.Objects;
+
 // every class in java gets 1 Class object in the RAM
 public class Student extends CollegeUser {
     // Object attributes
     // instance variables
-    int roll;
+    public int roll;
     public int marks;
 
     // class attribute
@@ -59,5 +61,18 @@ public class Student extends CollegeUser {
         }
 
         return result;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return roll == student.roll;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(roll);
     }
 }

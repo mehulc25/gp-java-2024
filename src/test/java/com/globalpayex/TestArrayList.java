@@ -1,5 +1,6 @@
 package com.globalpayex;
 
+import com.globalpayex.college.entities.Student;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -102,5 +103,76 @@ public class TestArrayList {
                 .filter(element -> element % 2 == 0 && element > 2)
                 .collect(Collectors.toList());
         assertEquals(expected, nl);
+    }
+
+    @Test
+    void testDeductingBy1() {
+        var nos = Arrays.asList(10, 4, 1, 9, 8, 7);
+        // to build up a new list consisting of all elements from nos list deducted by 1
+        var expected = Arrays.asList(9, 3, 0, 8, 7, 6);
+
+        // mapping
+        var actual = nos.stream()
+                .map(t -> t - 1)
+                .collect(Collectors.toList());
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void testFilterPlusMap() {
+        var nos = Arrays.asList(10, 4, 1, 9, 8, 7);
+        // to build up a new list
+            // filter all odd elements more than 1 from the nos list
+            // square each of the odd elements that have been filtered out in the above step
+            // collect it in a list
+        var expected = Arrays.asList(81, 49);
+
+        var actual = nos.stream()
+                .filter(t -> t % 2 != 0 && t > 1)
+                .map(t -> t * t)
+                .collect(Collectors.toList());
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void testStudents1() {
+        var students = Arrays.asList(
+                new Student("mehul", 10, 'm', 90),
+                new Student("jane", 11, 'f', 84),
+                new Student("jill", 13, 'f', 70),
+                new Student("rahul", 16, 'm', 72)
+        );
+        // find the names of all female students comma separated
+        var expected = "jane,jill";
+
+        var actual = students.stream()
+                .filter(student -> student.getGender() == 'f')
+                .map(student -> student.getName())
+                .collect(Collectors.joining(","));
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void testStudents2() {
+        var students = Arrays.asList(
+                new Student("mehul", 10, 'm', 90),
+                new Student("jane", 11, 'f', 84),
+                new Student("jill", 13, 'f', 70),
+                new Student("rahul", 16, 'm', 72)
+        );
+        // create a new list of female Student objects sorted in the descending order
+        // of marks
+        var expected = Arrays.asList(
+                new Student("jane", 11, 'f', 84),
+                new Student("jill", 13, 'f', 70)
+        );
+        var actual = students.stream()
+                .filter(student -> student.getGender() == 'f')
+                .sorted((s1, s2) -> Integer.valueOf(s2.marks).compareTo(Integer.valueOf(s1.marks)))
+                .collect(Collectors.toList());
+        System.out.println(expected);
+        System.out.println(actual);
+        assertEquals(expected.get(0).marks, actual.get(0).marks);
+        assertEquals(expected.get(1).marks, actual.get(1).marks);
     }
 }
