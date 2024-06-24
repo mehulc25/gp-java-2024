@@ -62,8 +62,13 @@ public class Account {
         return this.balance;
     }
 
-    public double withdraw(double amt) throws LowBalException {
+    public synchronized double withdraw(double amt) throws LowBalException {
         System.out.println("transaction starts");
+        System.out.println(String.format(
+                "ur current balance is %s as seen by %s thread before withdrawl",
+                this.balance,
+                Thread.currentThread().getName()
+        ));
 
         try {
             // amt passed to the method is 0 or negative
@@ -81,6 +86,11 @@ public class Account {
             this.balance -= amt; // the account goes in low balance state
             return this.balance;
         } finally {
+            System.out.println(String.format(
+                    "ur current balance is %s as seen by %s thread after withdrawl",
+                    this.balance,
+                    Thread.currentThread().getName()
+            ));
             System.out.println("transaction ends");
         }
     }

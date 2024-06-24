@@ -1,0 +1,13 @@
+
+o
+java:S1488"YImmediately return this expression instead of assigning it to the temporary variable "s".(Öû’
+r
+java:S1104	"PMake roll a static final constant or non-public and provide accessors if needed.(ªŸŠ¬şÿÿÿÿ8ÿÙôƒ2
+n
+java:S1104
+"QMake marks a static final constant or non-public and provide accessors if needed.(²Ò«°8ı®²Ğƒ2
+V	java:S125!"<This block of commented-out lines of code should be removed.(éÈŞøşÿÿÿÿ
+l
+java:S3457'"Q%n should be used in place of \n to produce the platform-specific line separator.(ØÅŸùÿÿÿÿ
+O
+java:S11171"9Rename "marks" which hides the field declared at line 10.(¢ÏŞ—

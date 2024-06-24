@@ -1,0 +1,9 @@
+
+Q	java:S125"<This block of commented-out lines of code should be removed.(©£Îá
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ùÉöŒ
+U	java:S106""9Replace this use of System.out or System.err by a logger.(„íí8ƒ‡¯öƒ2
+Z	java:S106$"9Replace this use of System.out or System.err by a logger.(äŸÍ„üÿÿÿÿ8ËÔ¯öƒ2
+Q	java:S125'"<This block of commented-out lines of code should be removed.(¾ø¤
+Q	java:S125-"<This block of commented-out lines of code should be removed.(ŸĞé§
+H
+java:S1128"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ
